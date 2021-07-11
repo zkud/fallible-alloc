@@ -25,8 +25,8 @@ impl fmt::Display for AllocErrorType {
 impl AllocError {
     pub fn new(message: String, error_type: AllocErrorType) -> AllocError {
         AllocError {
-            message,
             error_type,
+            message,
         }
     }
 

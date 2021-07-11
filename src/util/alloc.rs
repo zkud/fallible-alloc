@@ -1,14 +1,12 @@
 use super::layout;
 use crate::alloc_error;
 use std::alloc;
+use std::alloc::GlobalAlloc;
 
-pub fn alloc_array<T: Sized, A: alloc::GlobalAlloc>(
-    allocator: A,
-    size: usize,
-) -> Result<*mut T, alloc_error::AllocError> {
+pub fn alloc_array<T: Sized>(size: usize) -> Result<*mut T, alloc_error::AllocError> {
     let layout = layout::create_vec_layout::<T>(size)?;
 
-    let array = unsafe { allocator.alloc(layout) };
+    let array = unsafe { alloc::System.alloc(layout) };
 
     if array.is_null() {
         Err(alloc_error::AllocError::new(
