@@ -1,0 +1,10 @@
+[package]
+name = "fallible_alloc"
+version = "0.1.0"
+authors = ["zkud <kudirko.anton@gmail.com>"]
+edition = "2018"
+license = "MIT"
+repository = ""
+keywords = ["allocation", "fallible", "std", "stable"]
+
+[dependencies]
