@@ -1,6 +1,7 @@
 # Fallible rust stable std collections allocations
 [![failable_alloc](https://github.com/zkud/fallible-alloc/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/zkud/fallible-alloc/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/zkud/fallible-alloc/branch/main/graph/badge.svg?token=N2YD1XEW8D)](https://codecov.io/gh/zkud/fallible-alloc)
+[![Hits-of-Code](https://hitsofcode.com/github/zkud/fallible-alloc?branch=main)](https://hitsofcode.com/github/zkud/fallible-alloc/view?branch=main)
 
 At the moment we have an unstabilized allocations API in the std,
 so this is a temporary safe solution for a stable rust.
