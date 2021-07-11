@@ -1,4 +1,5 @@
 # Fallible rust stable std collections allocations
+[![failable_alloc](https://github.com/zkud/fallible-alloc/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/zkud/fallible-alloc/actions/workflows/ci.yml)
 
 At the moment we have an unstabilized allocations API in the std,
 so this is a temporary safe solution for a stable rust.
