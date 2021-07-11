@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = ["zkud <kudirko.anton@gmail.com>"]
 edition = "2018"
 license = "MIT"
-repository = ""
+repository = "https://github.com/zkud/fallible-alloc"
 keywords = ["allocation", "fallible", "std", "stable"]
 
 [dependencies]
