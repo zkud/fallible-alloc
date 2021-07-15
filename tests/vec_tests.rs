@@ -1,6 +1,6 @@
 use std::alloc::GlobalAlloc;
-use std::alloc::System;
 use std::alloc::Layout;
+use std::alloc::System;
 use std::ptr;
 
 use fallible_alloc::alloc_error::AllocErrorType;

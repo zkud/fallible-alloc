@@ -66,6 +66,7 @@ impl AllocError {
 mod tests {
     use super::AllocError;
     use super::AllocErrorType;
+    use std::alloc::Layout;
 
     #[test]
     fn it_inits() {
@@ -78,6 +79,18 @@ mod tests {
 
         assert_eq!(alloc_error.message(), "alloc error");
         assert_eq!(alloc_error.error_type(), AllocErrorType::FailedAllocation);
+    }
+
+    #[test]
+    fn it_initable_from_layout_error() {
+        // Using incorrect align intentionaly to produce an error
+        match Layout::from_size_align(123, 3) {
+            Ok(_) => panic!("Unable to produce a layout error"),
+            Err(error) => {
+                let error = AllocError::from(error);
+                assert_eq!(error.error_type(), AllocErrorType::LayoutError);
+            }
+        }
     }
 
     #[test]
