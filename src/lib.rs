@@ -42,6 +42,7 @@
 
 #![deny(missing_docs)]
 #![deny(missing_doc_code_examples)]
+#![doc(html_root_url = "https://docs.rs/fallible_alloc/0.1.0")]
 
 pub mod alloc_error;
 mod util;
