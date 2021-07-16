@@ -11,12 +11,11 @@ so this is a temporary safe solution for a stable rust.
 To create a vector you could use this code example:
 ```
 use fallible_alloc::vec::alloc_with_size;
-use std::alloc::System;
 
 ...
 
 let vector_size: usize = 10;
-let maybe_vector = alloc_with_size::<f64, System>(System, vector_size);
+let maybe_vector = alloc_with_size::<f64>(vector_size);
 
 match maybe_vector {
   Ok(vec) => println!("Created a vec with size 10"),
@@ -25,3 +24,23 @@ match maybe_vector {
 ```
 As you could see, the maybe_vector has a ```Result<Vec<T>, falliable_alloc::AllocError> type```,
 so now it's possible to handle a part of allocation errors.
+
+Also it's possible to change the allocator used by crate with this code example:
+```
+use std::alloc::{GlobalAlloc, System, Layout};
+
+struct MyAllocator;
+
+unsafe impl GlobalAlloc for MyAllocator {
+    unsafe fn alloc(&self, layout: Layout) -> *mut u8 {
+        System.alloc(layout)
+    }
+
+    unsafe fn dealloc(&self, ptr: *mut u8, layout: Layout) {
+        System.dealloc(ptr, layout)
+    }
+}
+
+#[global_allocator]
+static GLOBAL: MyAllocator = MyAllocator;
+```

@@ -6,5 +6,6 @@ edition = "2018"
 license = "MIT"
 repository = "https://github.com/zkud/fallible-alloc"
 keywords = ["allocation", "fallible", "std", "stable"]
-
-[dependencies]
+description = "Fallible rust stable std collections allocations"
+readme = "README.md"
+categories = ["Memory management"]
