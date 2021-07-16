@@ -14,9 +14,9 @@ use crate::util::alloc as util_alloc;
 ///   Err(error) => println!("Failed to create a vec, reason: {}", error)
 /// };
 /// ```
-/// 
+///
 /// # Errors
-/// 
+///
 /// If allocation is not possible due to issues with memory layouts or not enough memory,
 /// it will return an [crate::alloc_error::AllocError]
 pub fn alloc_with_size<T: Sized>(size: usize) -> Result<Vec<T>, alloc_error::AllocError> {
