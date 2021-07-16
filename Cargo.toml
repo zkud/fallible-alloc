@@ -8,3 +8,4 @@ repository = "https://github.com/zkud/fallible-alloc"
 keywords = ["allocation", "fallible", "std", "stable"]
 description = "Fallible rust stable std collections allocations"
 readme = "README.md"
+categories = ["Memory management"]
