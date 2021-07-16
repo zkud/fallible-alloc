@@ -2,7 +2,7 @@
 
 ## Presequencies
 
-It's assumed you have read [the rust book](https://doc.rust-lang.org/book/) and are familiar with [the rust cookbook](https://rust-lang-nursery.github.io/rust-cookbook/).
+It's assumed you have read [the rust book](https://doc.rust-lang.org/book/), [rust API guideline](https://rust-lang.github.io/api-guidelines/about.html) and are familiar with [the rust cookbook](https://rust-lang-nursery.github.io/rust-cookbook/).
 
 ## Introduction
 
@@ -13,7 +13,7 @@ At the moment we have an unstabilized allocations API in the std, so this is a t
 ### Modules structure
 
 The modules structure is the following:
-![](https://github.com/zkud/fallible-alloc/blob/main/docs/images/modules.png)
+![](https://github.com/zkud/fallible-alloc/blob/main/doc/images/modules.png)
 
 As you could understand, lib is the root module of the project,
 and uses modules defined for aspects of std lib, also there is a util module,
