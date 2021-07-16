@@ -4,9 +4,9 @@ use super::alloc_error;
 use crate::util::alloc as util_alloc;
 
 /// Allocates a [`Vec<T>`] with given size
-/// 
+///
 /// If it's not possible, it will return an [crate::alloc_error::AllocError]
-/// 
+///
 /// Usage example
 /// ```rust
 /// use fallible_alloc::vec::alloc_with_size;
