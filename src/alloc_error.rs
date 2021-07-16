@@ -1,16 +1,35 @@
+//! Allocation errors handling module
+
 use std::alloc;
 use std::error;
 use std::fmt;
 
+/// Crate's error type describing issues with allocation
+/// 
+/// Please check possible reasons of issues in [AllocErrorType]
+/// 
+/// Usage example:
+/// ```rust
+/// use fallible_alloc::vec::alloc_with_size;
+///
+/// match alloc_with_size::<f32>(10) {
+///   Ok(vec) => println!("Created a vec with size 10"),
+///   Err(error) => println!("Failed to create a vec, reason: {}", error)
+/// }
+/// ```
 #[derive(fmt::Debug, Clone, Hash)]
 pub struct AllocError {
     error_type: AllocErrorType,
     message: String,
 }
 
+/// Reasons of allocation issues
 #[derive(fmt::Debug, Clone, PartialEq, Hash)]
 pub enum AllocErrorType {
+    /// Layout provided to std allocation functions 
+    /// is incorrect
     LayoutError,
+    /// Failed to allocate a memory with global allocator (it has returned null ptr)
     FailedAllocation,
 }
 
@@ -46,6 +65,16 @@ unsafe impl Send for AllocError {}
 unsafe impl Sync for AllocError {}
 
 impl AllocError {
+    /// Creates a new [AllocError]
+    /// 
+    /// Please check error types in [AllocErrorType]
+    /// 
+    /// Usage example:
+    /// ```rust
+    /// use fallible_alloc::alloc_error::AllocError;
+    /// use fallible_alloc::alloc_error::AllocErrorType;
+    /// let error = AllocError::new("error", AllocErrorType::FailedAllocation);
+    /// ```
     pub fn new<M: AsRef<str>>(message: M, error_type: AllocErrorType) -> AllocError {
         AllocError {
             error_type,
@@ -53,10 +82,32 @@ impl AllocError {
         }
     }
 
+    /// [AllocError]'s message getter
+    /// 
+    /// Message is being cloned on return
+    /// 
+    /// Usage example:
+    /// ```rust
+    /// use fallible_alloc::alloc_error::AllocError;
+    /// use fallible_alloc::alloc_error::AllocErrorType;
+    /// let error = AllocError::new("error", AllocErrorType::FailedAllocation);
+    /// println!("{}", error.message());
+    /// ```
     pub fn message(&self) -> String {
         self.message.clone()
     }
 
+    /// [AllocError]'s type getter
+    /// 
+    /// Message is being cloned on return
+    /// 
+    /// Usage example:
+    /// ```rust
+    /// use fallible_alloc::alloc_error::AllocError;
+    /// use fallible_alloc::alloc_error::AllocErrorType;
+    /// let error = AllocError::new("error", AllocErrorType::FailedAllocation);
+    /// assert_eq!(error.error_type(), AllocErrorType::FailedAllocation);
+    /// ```
     pub fn error_type(&self) -> AllocErrorType {
         self.error_type.clone()
     }
