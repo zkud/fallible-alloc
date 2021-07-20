@@ -1,6 +1,7 @@
 use crate::alloc_error;
 use std::alloc;
 
+#[inline]
 pub fn alloc_array<T: Sized>(size: usize) -> Result<*mut T, alloc_error::AllocError> {
     let layout = alloc::Layout::array::<T>(size)?;
 
@@ -16,6 +17,7 @@ pub fn alloc_array<T: Sized>(size: usize) -> Result<*mut T, alloc_error::AllocEr
     }
 }
 
+#[inline]
 pub fn alloc_value<T: Sized>() -> Result<*mut T, alloc_error::AllocError> {
     let layout = alloc::Layout::new::<T>();
 
