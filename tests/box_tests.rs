@@ -41,6 +41,7 @@ fn with_not_enough_mem_it_handles_oom() {
         Ok(_) => panic!("There should be an error, when unable to allocate memory"),
         Err(error) => {
             assert_eq!(error.error_type(), AllocErrorType::FailedAllocation);
+            assert_eq!(error.message(), "Failed to allocate a value");
         }
     }
 }
