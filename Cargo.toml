@@ -9,3 +9,6 @@ keywords = ["allocation", "fallible", "std", "stable"]
 description = "Fallible rust stable std collections allocations"
 readme = "README.md"
 categories = ["memory-management"]
+
+[dev-dependencies]
+version-sync = "0.9"
