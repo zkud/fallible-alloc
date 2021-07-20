@@ -18,7 +18,7 @@ use crate::util::alloc as util_alloc;
 /// # Errors
 ///
 /// If allocation is not possible due to issues with memory layouts or not enough memory,
-/// it will return an [crate::alloc_error::AllocError]
+/// it will return an [AllocError](crate::alloc_error::AllocError)
 pub fn alloc_with_size<T: Sized>(size: usize) -> Result<Vec<T>, alloc_error::AllocError> {
     let buffer = util_alloc::alloc_array(size)?;
     Ok(unsafe { Vec::from_raw_parts(buffer, size, size) })

@@ -13,6 +13,7 @@ At the moment we have an unstabilized allocations API in the std, so this is a t
 ### Modules structure
 
 The modules structure is the following:
+
 ![](https://github.com/zkud/fallible-alloc/blob/main/doc/images/modules.png)
 
 As you could understand, lib is the root module of the project,
