@@ -45,4 +45,3 @@ fn with_not_enough_mem_it_handles_oom() {
         }
     }
 }
-
