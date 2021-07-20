@@ -27,8 +27,8 @@ unsafe impl GlobalAlloc for SmallMemoryAllocator {
 #[global_allocator]
 static GLOBAL: SmallMemoryAllocator = SmallMemoryAllocator;
 
-struct SmallType ([u128; 10]);
-struct BigType ([u128; 100000000000]);
+struct SmallType([u128; 10]);
+struct BigType([u128; 100000000000]);
 
 #[test]
 fn with_enough_mem_it_allocates() {

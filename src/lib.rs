@@ -45,6 +45,6 @@
 #![doc(html_root_url = "https://docs.rs/fallible_alloc/0.2.0")]
 
 pub mod alloc_error;
+pub mod box_ptr;
 mod util;
 pub mod vec;
-pub mod box_ptr;
