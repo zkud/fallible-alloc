@@ -22,7 +22,7 @@ match maybe_vector {
   Err(error) => println!("Failed to create a vec, reason: {}", error)
 }
 ```
-As you could see, the maybe_vector has a ```Result<Vec<T>, falliable_alloc::AllocError> type```,
+As you could see, the maybe_vector has a ```Result<Vec<T>, AllocError> type```,
 so now it's possible to handle a part of allocation errors.
 
 Also it's possible to change the allocator used by crate with this code example:
