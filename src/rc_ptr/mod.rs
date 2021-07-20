@@ -21,5 +21,5 @@ use std::rc::Rc;
 /// it will return an [AllocError](crate::alloc_error::AllocError)
 pub fn alloc<T: Sized>() -> Result<Rc<T>, alloc_error::AllocError> {
     let value_ptr = util_alloc::alloc_value()?;
-    Ok(unsafe { Rc::from_raw(value_ptr) })
+    Ok(unsafe { Rc::from_raw(value_ptr as *const T) })
 }
