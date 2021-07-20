@@ -42,9 +42,10 @@
 
 #![deny(missing_docs)]
 #![deny(missing_doc_code_examples)]
-#![doc(html_root_url = "https://docs.rs/fallible_alloc/0.2.0")]
+#![doc(html_root_url = "https://docs.rs/fallible_alloc/0.3.0")]
 
 pub mod alloc_error;
 pub mod box_ptr;
+pub mod rc_ptr;
 mod util;
 pub mod vec;
