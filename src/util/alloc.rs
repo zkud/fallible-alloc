@@ -32,3 +32,19 @@ pub fn alloc_value<T: Sized>() -> Result<*mut T, alloc_error::AllocError> {
         Ok(value_ptr as *mut T)
     }
 }
+
+#[inline]
+pub fn alloc_zeroed_value<T: Sized>() -> Result<*mut T, alloc_error::AllocError> {
+    let layout = alloc::Layout::new::<T>();
+
+    let value_ptr = unsafe { alloc::alloc_zeroed(layout) };
+
+    if value_ptr.is_null() {
+        Err(alloc_error::AllocError::new(
+            "Failed to allocate a value",
+            alloc_error::AllocErrorType::FailedAllocation,
+        ))
+    } else {
+        Ok(value_ptr as *mut T)
+    }
+}
