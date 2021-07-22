@@ -3,7 +3,6 @@
 use super::alloc_error;
 use crate::util::alloc as util_alloc;
 use std::rc::Rc;
-use std::mem;
 
 /// Allocates a [`Rc<T>`]
 ///
