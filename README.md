@@ -3,8 +3,8 @@
 [![codecov](https://codecov.io/gh/zkud/fallible-alloc/branch/main/graph/badge.svg?token=N2YD1XEW8D)](https://codecov.io/gh/zkud/fallible-alloc)
 [![Hits-of-Code](https://hitsofcode.com/github/zkud/fallible-alloc?branch=main)](https://hitsofcode.com/github/zkud/fallible-alloc/view?branch=main)
 
-At the moment we have an unstabilized allocations API in the std,
-so this is a temporary safe solution for a stable rust.
+This is a temporary stable safe solution to consider allocation errors for some of std types,
+while the similar allocation API is still being stabilized.
 
 ## Usage example
 

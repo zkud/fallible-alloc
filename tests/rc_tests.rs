@@ -32,12 +32,12 @@ struct BigType([u128; 1000000]);
 
 #[test]
 fn with_enough_mem_it_allocates() {
-    fallible_alloc::box_ptr::alloc::<SmallType>().unwrap();
+    fallible_alloc::rc_ptr::alloc::<SmallType>().unwrap();
 }
 
 #[test]
 fn with_not_enough_mem_it_handles_oom() {
-    match fallible_alloc::box_ptr::alloc::<BigType>() {
+    match fallible_alloc::rc_ptr::alloc::<BigType>() {
         Ok(_) => panic!("There should be an error, when unable to allocate memory"),
         Err(error) => {
             assert_eq!(error.error_type(), AllocErrorType::FailedAllocation);
